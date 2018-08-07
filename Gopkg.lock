@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/golang/protobuf"
+  packages = ["proto"]
+  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
+  version = "v1.1.0"
+
+[[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
@@ -10,11 +16,46 @@
 [[projects]]
   name = "github.com/zenoss/go-auth0"
   packages = [
+    "auth0",
     "auth0/authz",
-    "auth0/http"
+    "auth0/http",
+    "auth0/mgmt"
   ]
   revision = "bde18d3a742790ac87bc55622070bdf545ba147a"
   version = "1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = [
+    "context",
+    "context/ctxhttp"
+  ]
+  revision = "19491d39cadbd9cd33f26ca22cc89ba4ba38251c"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/oauth2"
+  packages = [
+    ".",
+    "clientcredentials",
+    "internal"
+  ]
+  revision = "3d292e4d0cdc3a0113e6d207bb137145ef1de42f"
+
+[[projects]]
+  name = "google.golang.org/appengine"
+  packages = [
+    "internal",
+    "internal/base",
+    "internal/datastore",
+    "internal/log",
+    "internal/remote_api",
+    "internal/urlfetch",
+    "urlfetch"
+  ]
+  revision = "b1f26356af11148e710935ed1ac8a7f5702c7612"
+  version = "v1.1.0"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -25,6 +66,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "5577b9207945e0f7ce290a4edf4e59bb7c3330388de4a239c9e775d268b5a24d"
+  inputs-digest = "11648b354fd7694a838b0effc1f56324e8a3fae23a4105ea53c9388a6b63082d"
   solver-name = "gps-cdcl"
   solver-version = 1

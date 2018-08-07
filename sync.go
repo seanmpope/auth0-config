@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 
 	"github.com/zenoss/go-auth0/auth0/authz"
-	"gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v2"
 )
 
 type Globals map[string]interface{}
@@ -14,17 +14,6 @@ type Auth0Config struct {
 	Authorization AuthorizationConfig
 	Management    ManagementConfig
 }
-
-// func (cfg *Auth0Config) UnmarshalYAML(unmarshal func(interface{}) error) error {
-// 	g := make(map[string]interface{})
-// 	err := unmarshal(g)
-// 	if err != nil {
-// 		return err
-// 	}
-// 	cfg.Globals = g
-// 	fmt.Printf("\n%+v\n", g)
-// 	return nil
-// }
 
 func NewAuth0Config(fileName string) (Auth0Config, error) {
 	var cfg Auth0Config
@@ -36,7 +25,6 @@ func NewAuth0Config(fileName string) (Auth0Config, error) {
 	if err != nil {
 		return cfg, err
 	}
-
 	return cfg, nil
 }
 
@@ -61,20 +49,6 @@ type OperationResult struct {
 	Request interface{}
 	Result  interface{}
 }
-
-// func NewAuthorizationConfig(fileName string) (AuthorizationConfig, error) {
-// 	var cfg AuthorizationConfig
-// 	bs, err := ioutil.ReadFile(fileName)
-// 	if err != nil {
-// 		return cfg, err
-// 	}
-// 	err = yaml.Unmarshal(bs, &cfg)
-// 	if err != nil {
-// 		return cfg, err
-// 	}
-
-// 	return cfg, nil
-// }
 
 func (cfg *AuthorizationConfig) CreateRoles(rc RolesClient) []OperationResult {
 	results := make([]OperationResult, len(cfg.Roles))
